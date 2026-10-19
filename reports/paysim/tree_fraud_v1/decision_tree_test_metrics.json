@@ -1,0 +1,41 @@
+{
+  "experiment_id": "paysim-tree-fraud-v1",
+  "evaluation_type": "locked_holdout_test_evaluation",
+  "model": "decision_tree",
+  "target": "isFraud",
+  "features": [
+    "amount",
+    "oldbalanceOrg",
+    "oldbalanceDest",
+    "log_amount",
+    "type"
+  ],
+  "threshold": 0.998388869725469,
+  "threshold_source": "validation_f1_selected_threshold",
+  "threshold_tuned_on_test": false,
+  "model_retrained_during_evaluation": false,
+  "scikit_learn_version": "1.9.1",
+  "evaluation_timestamp_utc": "2026-10-19T16:45:51.672590+00:00",
+  "test_rows": 918617,
+  "test_fraud_cases": 4006,
+  "test_fraud_rate": 0.004360903401526425,
+  "test_min_step": 379,
+  "test_max_step": 743,
+  "average_precision": 0.8136642552096774,
+  "roc_auc": 0.987809226652755,
+  "precision": 0.9200146092037984,
+  "recall": 0.628806789815277,
+  "f1": 0.7470344009489917,
+  "true_positives": 2519,
+  "false_positives": 219,
+  "true_negatives": 914392,
+  "false_negatives": 1487,
+  "flagged_transactions": 2738,
+  "false_positive_rate": 0.00023944605958161447,
+  "fraud_capture_rate": 0.628806789815277,
+  "notes": [
+    "Threshold was selected on validation data and frozen before test evaluation.",
+    "Test metrics are for a later chronological period with a different observed fraud prevalence.",
+    "Do not use these test results to tune the model and continue treating this same partition as an untouched holdout."
+  ]
+}

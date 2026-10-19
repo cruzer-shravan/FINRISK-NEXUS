@@ -1,0 +1,3 @@
+actual,predicted_legitimate,predicted_fraud
+legitimate,914392,219
+fraud,1487,2519
