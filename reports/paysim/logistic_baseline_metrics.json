@@ -1,0 +1,39 @@
+{
+  "model": "LogisticRegression",
+  "class_weight": "balanced",
+  "features": [
+    "amount",
+    "oldbalanceOrg",
+    "oldbalanceDest",
+    "log_amount",
+    "type"
+  ],
+  "target": "isFraud",
+  "training_rows": 4463587,
+  "validation_rows": 980416,
+  "training_fraud_cases": 3643,
+  "validation_fraud_cases": 564,
+  "validation_pr_auc": 0.17002770504155756,
+  "validation_roc_auc": 0.9820780558320242,
+  "validation_default_threshold": {
+    "threshold": 0.5,
+    "precision": 0.007726161369193154,
+    "recall": 0.9804964539007093,
+    "f1": 0.015331512773950291,
+    "true_positives": 553,
+    "false_positives": 71022,
+    "true_negatives": 908830,
+    "false_negatives": 11
+  },
+  "validation_f1_selected_threshold": {
+    "threshold": 0.9999802688133428,
+    "precision": 0.4355400696864111,
+    "recall": 0.22163120567375885,
+    "f1": 0.2937720329024677,
+    "true_positives": 125,
+    "false_positives": 162,
+    "true_negatives": 979690,
+    "false_negatives": 439
+  },
+  "threshold_selection": "Maximum F1 on validation set; test set not used"
+}
