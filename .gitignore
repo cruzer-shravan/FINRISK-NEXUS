@@ -9,4 +9,7 @@ __pycache__/
 mlruns/
 models/
 artifacts/
-data/raw/
+
+data/
+*.bak
+*.parquet

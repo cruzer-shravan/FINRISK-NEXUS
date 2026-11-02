@@ -1,0 +1,50 @@
+{
+  "dataset": "PaySim Gold layer",
+  "source_file": "data/silver/paysim/transactions.parquet",
+  "transaction_features_file": "data/gold/paysim/transaction_features.parquet",
+  "fraud_analytics_file": "data/gold/paysim/fraud_analytics.parquet",
+  "source_rows": 6362620,
+  "gold_transaction_rows": 6362620,
+  "source_columns": 11,
+  "gold_transaction_columns": 16,
+  "fraud_label_counts": {
+    "0": 6354407,
+    "1": 8213
+  },
+  "source_invariant_checks": {
+    "null_amount": 0,
+    "negative_amount": 0,
+    "null_isFraud": 0,
+    "invalid_isFraud": 0,
+    "null_isFlaggedFraud": 0,
+    "invalid_isFlaggedFraud": 0
+  },
+  "balance_mismatch_tolerance": 0.01,
+  "model_feature_columns": [
+    "step",
+    "type",
+    "amount",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "origin_balance_error",
+    "destination_balance_error",
+    "origin_balance_mismatch",
+    "destination_balance_mismatch",
+    "log_amount"
+  ],
+  "target_column": "isFraud",
+  "audit_only_column": "isFlaggedFraud",
+  "checks": {
+    "row_count_preserved": true,
+    "feature_schema_matches": true,
+    "fraud_label_counts_preserved": true,
+    "transaction_type_analytics_reconciles": true
+  },
+  "validation_status": "passed",
+  "source_sha256": "348c61dbec9ae5937a4522ae0dbb20722d9dec0166520f8becfec33797d8a121",
+  "transaction_features_sha256": "bddb53d77d9796dfcd2b9e7dc3df8049592a3126e1d896f489a1326fc802911c",
+  "fraud_analytics_sha256": "3888e5580111407f5130dd9db8c7f134edf0058db16bc8fc57a04224686e071e",
+  "created_at_utc": "2026-10-19T07:37:02.987348+00:00"
+}

@@ -1,0 +1,77 @@
+{
+  "total_transactions": 6362620,
+  "total_fraud": 8213,
+  "overall_fraud_rate_pct": 0.12908204481801522,
+  "total_flagged": 16,
+  "number_of_observed_steps": 743,
+  "minimum_step": 1,
+  "maximum_step": 743,
+  "peak_volume_step": 19,
+  "peak_volume_transactions": 51352,
+  "peak_fraud_count_step": 212,
+  "peak_fraud_count": 40,
+  "peak_fraud_rate_step": 28,
+  "peak_fraud_rate_pct": 100.0,
+  "top_fraud_rate_steps_min_1000_transactions": [
+    {
+      "step": 664,
+      "transactions": 1125,
+      "fraud_count": 20,
+      "fraud_rate_pct": 1.7777777777777777
+    },
+    {
+      "step": 621,
+      "transactions": 1121,
+      "fraud_count": 18,
+      "fraud_rate_pct": 1.6057091882247994
+    },
+    {
+      "step": 608,
+      "transactions": 1082,
+      "fraud_count": 16,
+      "fraud_rate_pct": 1.478743068391867
+    },
+    {
+      "step": 6,
+      "transactions": 1660,
+      "fraud_count": 22,
+      "fraud_rate_pct": 1.3253012048192772
+    },
+    {
+      "step": 121,
+      "transactions": 1074,
+      "fraud_count": 14,
+      "fraud_rate_pct": 1.303538175046555
+    },
+    {
+      "step": 145,
+      "transactions": 1117,
+      "fraud_count": 14,
+      "fraud_rate_pct": 1.2533572068039391
+    },
+    {
+      "step": 614,
+      "transactions": 1278,
+      "fraud_count": 16,
+      "fraud_rate_pct": 1.2519561815336464
+    },
+    {
+      "step": 569,
+      "transactions": 1182,
+      "fraud_count": 14,
+      "fraud_rate_pct": 1.1844331641285957
+    },
+    {
+      "step": 25,
+      "transactions": 1598,
+      "fraud_count": 18,
+      "fraud_rate_pct": 1.1264080100125156
+    },
+    {
+      "step": 640,
+      "transactions": 1398,
+      "fraud_count": 14,
+      "fraud_rate_pct": 1.0014306151645207
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "zero_amount_transactions": 16,
+  "amount_by_fraud_label": {
+    "0": {
+      "count": 6354407,
+      "min": 0.01,
+      "max": 92445516.64,
+      "zero_amount_count": 0,
+      "mean_amount": 178197.0417274075
+    },
+    "1": {
+      "count": 8213,
+      "min": 0.0,
+      "max": 10000000.0,
+      "zero_amount_count": 16,
+      "mean_amount": 1467967.2991403872
+    }
+  },
+  "amount_by_transaction_type_and_fraud": {
+    "CASH_IN|0": {
+      "transactions": 1399284,
+      "total_amount": 236367391912.45996,
+      "mean_amount": 168920.24200409636
+    },
+    "CASH_OUT|0": {
+      "transactions": 2233384,
+      "total_amount": 388423792980.6599,
+      "mean_amount": 173917.1557513889
+    },
+    "CASH_OUT|1": {
+      "transactions": 4116,
+      "total_amount": 5989202243.83,
+      "mean_amount": 1455102.5859645286
+    },
+    "DEBIT|0": {
+      "transactions": 41432,
+      "total_amount": 227199221.27999997,
+      "mean_amount": 5483.665313767136
+    },
+    "PAYMENT|0": {
+      "transactions": 2151495,
+      "total_amount": 28093371138.37,
+      "mean_amount": 13057.604660187451
+    },
+    "TRANSFER|0": {
+      "transactions": 528812,
+      "total_amount": 479224774079.16003,
+      "mean_amount": 906229.0078121526
+    },
+    "TRANSFER|1": {
+      "transactions": 4097,
+      "total_amount": 6067213184.01,
+      "mean_amount": 1480891.6729338542
+    }
+  },
+  "balance_residual_diagnostics_by_type": {
+    "CASH_IN": {
+      "transactions": 1399284,
+      "origin_residual_mismatch": 1399284,
+      "destination_residual_mismatch": 1399284
+    },
+    "CASH_OUT": {
+      "transactions": 2237500,
+      "origin_residual_mismatch": 1991269,
+      "destination_residual_mismatch": 507426
+    },
+    "DEBIT": {
+      "transactions": 41432,
+      "origin_residual_mismatch": 12462,
+      "destination_residual_mismatch": 9631
+    },
+    "PAYMENT": {
+      "transactions": 2151495,
+      "origin_residual_mismatch": 1165894,
+      "destination_residual_mismatch": 2151495
+    },
+    "TRANSFER": {
+      "transactions": 532909,
+      "origin_residual_mismatch": 508782,
+      "destination_residual_mismatch": 120811
+    }
+  }
+}

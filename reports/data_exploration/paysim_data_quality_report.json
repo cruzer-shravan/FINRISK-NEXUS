@@ -1,0 +1,78 @@
+{
+  "source_file": "data\\raw\\paysim\\PS_20174392719_1491204439457_log.csv",
+  "rows": 6362620,
+  "columns": [
+    "step",
+    "type",
+    "amount",
+    "nameOrig",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "nameDest",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "isFraud",
+    "isFlaggedFraud"
+  ],
+  "column_count": 11,
+  "columns_match_expected": true,
+  "dtypes": {
+    "step": "int64",
+    "type": "str",
+    "amount": "float64",
+    "nameOrig": "str",
+    "oldbalanceOrg": "float64",
+    "newbalanceOrig": "float64",
+    "nameDest": "str",
+    "oldbalanceDest": "float64",
+    "newbalanceDest": "float64",
+    "isFraud": "int64",
+    "isFlaggedFraud": "int64"
+  },
+  "missing_values": {
+    "step": 0,
+    "type": 0,
+    "amount": 0,
+    "nameOrig": 0,
+    "oldbalanceOrg": 0,
+    "newbalanceOrig": 0,
+    "nameDest": 0,
+    "oldbalanceDest": 0,
+    "newbalanceDest": 0,
+    "isFraud": 0,
+    "isFlaggedFraud": 0
+  },
+  "duplicate_rows_within_chunks": 0,
+  "fraud_counts": {
+    "0": 6354407,
+    "1": 8213
+  },
+  "fraud_rate_percent": 0.129082,
+  "flag_counts": {
+    "0": 6362604,
+    "1": 16
+  },
+  "fraud_by_transaction_type_and_label": {
+    "CASH_IN|0": 1399284,
+    "CASH_OUT|0": 2233384,
+    "CASH_OUT|1": 4116,
+    "DEBIT|0": 41432,
+    "PAYMENT|0": 2151495,
+    "TRANSFER|0": 528812,
+    "TRANSFER|1": 4097
+  },
+  "transaction_types": [
+    "CASH_IN",
+    "CASH_OUT",
+    "DEBIT",
+    "PAYMENT",
+    "TRANSFER"
+  ],
+  "invalid_amount_rows": 0,
+  "negative_amount_rows": 0,
+  "invalid_label_rows": 0,
+  "min_step": 1,
+  "max_step": 743,
+  "min_amount": 0.0,
+  "max_amount": 92445516.64
+}

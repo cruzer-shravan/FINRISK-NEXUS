@@ -1,0 +1,5 @@
+,in_degree,in_degree,out_degree,out_degree,total_degree,total_degree,betweenness_centrality,betweenness_centrality,incoming_tx_count,incoming_tx_count,outgoing_tx_count,outgoing_tx_count,incoming_amount,incoming_amount,outgoing_amount,outgoing_amount,total_tx_count,total_tx_count,total_amount_moved,total_amount_moved,strong_component_size,strong_component_size
+,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean,median,mean
+account_is_fraud,,,,,,,,,,,,,,,,,,,,,,
+False,4.0,5.0465,5.0,5.401,9.0,10.4475,0.0012,0.0024,66.0,101.1993,100.0,108.0095,757550.34,2200034.8692,22545.6,2655495.9991,184.5,209.2088,1706575.845,4855530.8682,970.0,935.3222
+True,7.0,10.2593,5.0,8.4259,13.0,18.6852,0.003,0.0072,106.0,202.0247,152.5,166.7963,1841241.585,4073802.9804,27615.22,1717775.6543,261.0,368.821,2944549.745,5791578.6346,970.0,970.0

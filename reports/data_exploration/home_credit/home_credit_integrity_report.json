@@ -1,0 +1,176 @@
+{
+  "application_train.csv": {
+    "SK_ID_CURR": {
+      "rows": 307511,
+      "missing_count": 0,
+      "distinct_non_null_count": 307511,
+      "duplicate_non_null_count": 0
+    }
+  },
+  "application_test.csv": {
+    "SK_ID_CURR": {
+      "rows": 48744,
+      "missing_count": 0,
+      "distinct_non_null_count": 48744,
+      "duplicate_non_null_count": 0
+    }
+  },
+  "bureau.csv": {
+    "SK_ID_CURR": {
+      "rows": 1716428,
+      "missing_count": 0,
+      "distinct_non_null_count": 305811,
+      "duplicate_non_null_count": 1410617
+    },
+    "SK_ID_BUREAU": {
+      "rows": 1716428,
+      "missing_count": 0,
+      "distinct_non_null_count": 1716428,
+      "duplicate_non_null_count": 0
+    }
+  },
+  "bureau_balance.csv": {
+    "SK_ID_BUREAU": {
+      "rows": 27299925,
+      "missing_count": 0,
+      "distinct_non_null_count": 817395,
+      "duplicate_non_null_count": 26482530
+    }
+  },
+  "previous_application.csv": {
+    "SK_ID_CURR": {
+      "rows": 1670214,
+      "missing_count": 0,
+      "distinct_non_null_count": 338857,
+      "duplicate_non_null_count": 1331357
+    },
+    "SK_ID_PREV": {
+      "rows": 1670214,
+      "missing_count": 0,
+      "distinct_non_null_count": 1670214,
+      "duplicate_non_null_count": 0
+    }
+  },
+  "POS_CASH_balance.csv": {
+    "SK_ID_PREV": {
+      "rows": 10001358,
+      "missing_count": 0,
+      "distinct_non_null_count": 936325,
+      "duplicate_non_null_count": 9065033
+    }
+  },
+  "credit_card_balance.csv": {
+    "SK_ID_PREV": {
+      "rows": 3840312,
+      "missing_count": 0,
+      "distinct_non_null_count": 104307,
+      "duplicate_non_null_count": 3736005
+    }
+  },
+  "installments_payments.csv": {
+    "SK_ID_PREV": {
+      "rows": 13605401,
+      "missing_count": 0,
+      "distinct_non_null_count": 997752,
+      "duplicate_non_null_count": 12607649
+    }
+  },
+  "train_test_overlap": {
+    "overlapping_customer_ids": 0,
+    "status": "PASS"
+  },
+  "relationships": [
+    {
+      "relationship": "Bureau customer IDs -> all application IDs",
+      "distinct_child_ids": 305811,
+      "distinct_parent_ids": 356255,
+      "unmatched_distinct_child_ids": 0,
+      "sample_unmatched_ids": [],
+      "status": "PASS"
+    },
+    {
+      "relationship": "Previous-application customer IDs -> all application IDs",
+      "distinct_child_ids": 338857,
+      "distinct_parent_ids": 356255,
+      "unmatched_distinct_child_ids": 0,
+      "sample_unmatched_ids": [],
+      "status": "PASS"
+    },
+    {
+      "relationship": "Bureau-balance IDs -> bureau records",
+      "distinct_child_ids": 817395,
+      "distinct_parent_ids": 1716428,
+      "unmatched_distinct_child_ids": 43041,
+      "sample_unmatched_ids": [
+        5001709,
+        5001740,
+        5001761,
+        5001781,
+        5001801,
+        5001822,
+        5001826,
+        5001866,
+        5001868,
+        5001869
+      ],
+      "status": "REVIEW"
+    },
+    {
+      "relationship": "POS-CASH IDs -> previous applications",
+      "distinct_child_ids": 936325,
+      "distinct_parent_ids": 1670214,
+      "unmatched_distinct_child_ids": 37422,
+      "sample_unmatched_ids": [
+        1000021,
+        1000037,
+        1000041,
+        1000095,
+        1000104,
+        1000106,
+        1000152,
+        1000176,
+        1000249,
+        1000251
+      ],
+      "status": "REVIEW"
+    },
+    {
+      "relationship": "Credit-card IDs -> previous applications",
+      "distinct_child_ids": 104307,
+      "distinct_parent_ids": 1670214,
+      "unmatched_distinct_child_ids": 11372,
+      "sample_unmatched_ids": [
+        1000096,
+        1000344,
+        1000455,
+        1000514,
+        1000515,
+        1000840,
+        1000842,
+        1000895,
+        1001040,
+        1001105
+      ],
+      "status": "REVIEW"
+    },
+    {
+      "relationship": "Installment IDs -> previous applications",
+      "distinct_child_ids": 997752,
+      "distinct_parent_ids": 1670214,
+      "unmatched_distinct_child_ids": 38847,
+      "sample_unmatched_ids": [
+        1000021,
+        1000037,
+        1000041,
+        1000095,
+        1000096,
+        1000104,
+        1000106,
+        1000152,
+        1000249,
+        1000251
+      ],
+      "status": "REVIEW"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Total transactions: 117,533
+Unique senders: 1000
+Unique receivers: 986
+Unique participating accounts: 1000
+Fraud-labelled transactions: 175
+Fraud transaction rate: 0.1489%
+Zero-amount transactions: 3
+Negative-amount transactions: 0
+Negative timestamps: 0
+Accounts in network: 1000
+Accounts with outgoing transactions: 1000
+Accounts with incoming transactions: 986
+Accounts with no transaction activity: 0
+Accounts involved in fraud-labelled transactions: 159
+Fraud-labelled accounts: 162
+Unique directed account pairs: 5891
+Repeated-transfer pairs: 5208
+Self-transfer transactions: 118

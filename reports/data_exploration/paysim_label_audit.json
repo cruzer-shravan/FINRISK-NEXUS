@@ -1,0 +1,45 @@
+{
+  "total_rows": 6362620,
+  "label_flag_combinations": {
+    "true_negative": 6354407,
+    "false_positive": 0,
+    "false_negative": 8197,
+    "true_positive": 16
+  },
+  "rule_flagged_transactions": 16,
+  "fraud_label_count": 8213,
+  "rule_precision": 1.0,
+  "rule_recall": 0.0019481310118105442,
+  "fraud_by_transaction_type": {
+    "CASH_IN": {
+      "total_transactions": 1399284,
+      "legitimate_label_count": 1399284,
+      "fraud_label_count": 0,
+      "fraud_rate_percent": 0.0
+    },
+    "CASH_OUT": {
+      "total_transactions": 2237500,
+      "legitimate_label_count": 2233384,
+      "fraud_label_count": 4116,
+      "fraud_rate_percent": 0.18395530726256984
+    },
+    "DEBIT": {
+      "total_transactions": 41432,
+      "legitimate_label_count": 41432,
+      "fraud_label_count": 0,
+      "fraud_rate_percent": 0.0
+    },
+    "PAYMENT": {
+      "total_transactions": 2151495,
+      "legitimate_label_count": 2151495,
+      "fraud_label_count": 0,
+      "fraud_rate_percent": 0.0
+    },
+    "TRANSFER": {
+      "total_transactions": 532909,
+      "legitimate_label_count": 528812,
+      "fraud_label_count": 4097,
+      "fraud_rate_percent": 0.7687991758442811
+    }
+  }
+}
