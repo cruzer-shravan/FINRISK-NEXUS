@@ -1,0 +1,11 @@
+{
+    "model": "lightgbm_tuned",
+    "method": "isotonic",
+    "calibration_cv_folds": 3,
+    "calibration_training_rows": 215257,
+    "validation_rows": 46127,
+    "brier_score": 0.06766472217225913,
+    "roc_auc": 0.7594153445762977,
+    "average_precision": 0.24332706387381497,
+    "log_loss": 0.24625437448688967
+}

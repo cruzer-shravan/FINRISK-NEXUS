@@ -1,0 +1,1188 @@
+{
+    "application_train.csv": {
+        "SK_ID_CURR": {
+            "rows": 307511,
+            "missing_count": 0,
+            "distinct_non_null_count": 307511,
+            "duplicate_non_null_count": 0
+        }
+    },
+    "application_test.csv": {
+        "SK_ID_CURR": {
+            "rows": 48744,
+            "missing_count": 0,
+            "distinct_non_null_count": 48744,
+            "duplicate_non_null_count": 0
+        }
+    },
+    "bureau.csv": {
+        "SK_ID_CURR": {
+            "rows": 1716428,
+            "missing_count": 0,
+            "distinct_non_null_count": 305811,
+            "duplicate_non_null_count": 1410617
+        },
+        "SK_ID_BUREAU": {
+            "rows": 1716428,
+            "missing_count": 0,
+            "distinct_non_null_count": 1716428,
+            "duplicate_non_null_count": 0
+        }
+    },
+    "bureau_balance.csv": {
+        "SK_ID_BUREAU": {
+            "rows": 27299925,
+            "missing_count": 0,
+            "distinct_non_null_count": 817395,
+            "duplicate_non_null_count": 26482530
+        }
+    },
+    "previous_application.csv": {
+        "SK_ID_CURR": {
+            "rows": 1670214,
+            "missing_count": 0,
+            "distinct_non_null_count": 338857,
+            "duplicate_non_null_count": 1331357
+        },
+        "SK_ID_PREV": {
+            "rows": 1670214,
+            "missing_count": 0,
+            "distinct_non_null_count": 1670214,
+            "duplicate_non_null_count": 0
+        }
+    },
+    "POS_CASH_balance.csv": {
+        "SK_ID_PREV": {
+            "rows": 10001358,
+            "missing_count": 0,
+            "distinct_non_null_count": 936325,
+            "duplicate_non_null_count": 9065033
+        }
+    },
+    "credit_card_balance.csv": {
+        "SK_ID_PREV": {
+            "rows": 3840312,
+            "missing_count": 0,
+            "distinct_non_null_count": 104307,
+            "duplicate_non_null_count": 3736005
+        }
+    },
+    "installments_payments.csv": {
+        "SK_ID_PREV": {
+            "rows": 13605401,
+            "missing_count": 0,
+            "distinct_non_null_count": 997752,
+            "duplicate_non_null_count": 12607649
+        }
+    },
+    "train_test_overlap": {
+        "overlapping_customer_ids": 0,
+        "status": "PASS"
+    },
+    "relationships": [
+        {
+            "relationship": "Bureau customer IDs -> all application IDs",
+            "distinct_child_ids": 305811,
+            "distinct_parent_ids": 356255,
+            "unmatched_distinct_child_ids": 0,
+            "sample_unmatched_ids": [],
+            "status": "PASS"
+        },
+        {
+            "relationship": "Previous-application customer IDs -> all application IDs",
+            "distinct_child_ids": 338857,
+            "distinct_parent_ids": 356255,
+            "unmatched_distinct_child_ids": 0,
+            "sample_unmatched_ids": [],
+            "status": "PASS"
+        },
+        {
+            "relationship": "Bureau-balance IDs -> bureau records",
+            "distinct_child_ids": 817395,
+            "distinct_parent_ids": 1716428,
+            "unmatched_distinct_child_ids": 43041,
+            "sample_unmatched_ids": [
+                5001709,
+                5001740,
+                5001761,
+                5001781,
+                5001801,
+                5001822,
+                5001826,
+                5001866,
+                5001868,
+                5001869
+            ],
+            "status": "REVIEW"
+        },
+        {
+            "relationship": "POS-CASH IDs -> previous applications",
+            "distinct_child_ids": 936325,
+            "distinct_parent_ids": 1670214,
+            "unmatched_distinct_child_ids": 37422,
+            "sample_unmatched_ids": [
+                1000021,
+                1000037,
+                1000041,
+                1000095,
+                1000104,
+                1000106,
+                1000152,
+                1000176,
+                1000249,
+                1000251
+            ],
+            "status": "REVIEW"
+        },
+        {
+            "relationship": "Credit-card IDs -> previous applications",
+            "distinct_child_ids": 104307,
+            "distinct_parent_ids": 1670214,
+            "unmatched_distinct_child_ids": 11372,
+            "sample_unmatched_ids": [
+                1000096,
+                1000344,
+                1000455,
+                1000514,
+                1000515,
+                1000840,
+                1000842,
+                1000895,
+                1001040,
+                1001105
+            ],
+            "status": "REVIEW"
+        },
+        {
+            "relationship": "Installment IDs -> previous applications",
+            "distinct_child_ids": 997752,
+            "distinct_parent_ids": 1670214,
+            "unmatched_distinct_child_ids": 38847,
+            "sample_unmatched_ids": [
+                1000021,
+                1000037,
+                1000041,
+                1000095,
+                1000096,
+                1000104,
+                1000106,
+                1000152,
+                1000249,
+                1000251
+            ],
+            "status": "REVIEW"
+        }
+    ],
+    "detailed_referential_integrity_investigation": {
+        "bureau_balance_to_bureau": {
+            "coverage": {
+                "child_table": "bureau_balance.csv",
+                "parent_table": "bureau.csv",
+                "child_key": "SK_ID_BUREAU",
+                "parent_key": "SK_ID_BUREAU",
+                "total_child_rows": 27299925,
+                "orphan_rows": 3120184,
+                "distinct_orphan_ids": 43041,
+                "orphan_rows_percentage": 11.4293,
+                "orphan_customer_analysis": {
+                    "status": "not_available",
+                    "reason": "bureau_balance.csv does not contain SK_ID_CURR. Its customer relationship requires bureau.csv."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "5718895",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719020",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719021",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719278",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719280",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719281",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719553",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720038",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720362",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720363",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720370",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720374",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212208",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212211",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212217",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212234",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212236",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212244",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212245",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212246",
+                        "rows": 97
+                    }
+                ]
+            },
+            "additional_findings": {
+                "matched_rows": 24179741,
+                "orphan_rows": 3120184,
+                "orphan_row_percentage": 11.4293,
+                "orphan_id_frequency": {
+                    "count": 43041,
+                    "mean": 72.493297,
+                    "standard_deviation": 33.177809,
+                    "minimum": 1,
+                    "percentile_25": 44,
+                    "median": 97,
+                    "percentile_75": 97,
+                    "maximum": 97
+                },
+                "months_balance_range": {
+                    "orphan_minimum": -96,
+                    "orphan_maximum": 0,
+                    "matched_minimum": -96,
+                    "matched_maximum": 0
+                },
+                "orphan_status_counts": {
+                    "0": 304225,
+                    "1": 12574,
+                    "2": 2465,
+                    "3": 1091,
+                    "4": 801,
+                    "5": 12072,
+                    "C": 2091564,
+                    "X": 695392
+                },
+                "matched_status_counts": {
+                    "0": 7195282,
+                    "1": 229773,
+                    "2": 20954,
+                    "3": 7833,
+                    "4": 5046,
+                    "5": 50334,
+                    "C": 11555429,
+                    "X": 5115090
+                },
+                "interpretation": [
+                    "The orphan population contains substantial monthly histories.",
+                    "Many orphan IDs have 97 monthly records.",
+                    "The status distribution differs between orphan and matched rows.",
+                    "bureau_balance.csv does not contain SK_ID_CURR, so direct customer-level analysis is unavailable from that table alone.",
+                    "These observations do not establish why the corresponding bureau parent records are absent."
+                ]
+            }
+        },
+        "pos_cash_to_previous_application": {
+            "coverage": {
+                "child_table": "POS_CASH_balance.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 10001358,
+                "orphan_rows": 340561,
+                "distinct_orphan_ids": 37422,
+                "orphan_rows_percentage": 3.4051,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 33530,
+                    "customers_found_in_applications": 33530,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "1271619",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1012861",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2611445",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1136347",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1323129",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1797672",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1103213",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2463401",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1752258",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1912962",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1466912",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2433053",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1252382",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2247294",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1978246",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1985467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2619136",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2459775",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1621683",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1779500",
+                        "rows": 96
+                    }
+                ]
+            },
+            "additional_findings": {
+                "distinct_orphan_ids": 37422,
+                "orphan_rows": 340561,
+                "orphan_row_percentage": 3.4051,
+                "overlap_with_installments_orphans": 28647,
+                "overlap_with_credit_card_orphans": 0,
+                "pos_cash_only_orphan_ids": 8775,
+                "customer_mapping_validation": {
+                    "shared_ids_with_installments": 28647,
+                    "matching_customer_mappings": 28647,
+                    "mismatched_customer_mappings": 0
+                },
+                "interpretation": [
+                    "All POS-CASH orphan IDs were accounted for in the comparisons with the credit-card and installment orphan populations.",
+                    "28,647 IDs also occur in installments_payments.csv.",
+                    "8,775 IDs do not occur in the installment orphan population.",
+                    "No POS-CASH orphan IDs overlap the credit-card orphan population.",
+                    "Shared customer mappings do not establish the missing previous-application relationship."
+                ]
+            }
+        },
+        "credit_card_to_previous_application": {
+            "coverage": {
+                "child_table": "credit_card_balance.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 3840312,
+                "orphan_rows": 1082816,
+                "distinct_orphan_ids": 11372,
+                "orphan_rows_percentage": 28.196,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 11368,
+                    "customers_found_in_applications": 11368,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "2582071",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1891521",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2095912",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1039039",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2332261",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1009803",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2293769",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2726169",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1444467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1681467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2137059",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2701290",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1125977",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1081753",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2638478",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1445955",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1900349",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1985672",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1496965",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1660593",
+                        "rows": 96
+                    }
+                ]
+            },
+            "additional_findings": {
+                "distinct_orphan_ids": 11372,
+                "orphan_rows": 1082816,
+                "orphan_row_percentage": 28.196,
+                "also_present_in_installments": 10195,
+                "absent_from_installments": 1177,
+                "overlap_with_pos_cash_orphans": 0,
+                "customer_mapping_validation": {
+                    "shared_ids_with_installments": 10195,
+                    "matching_customer_mappings": 10195,
+                    "mismatched_customer_mappings": 0
+                },
+                "representative_orphan_ids": [
+                    {
+                        "sk_id_prev": 1039039,
+                        "sk_id_curr": 276642
+                    },
+                    {
+                        "sk_id_prev": 1891521,
+                        "sk_id_curr": 126868
+                    },
+                    {
+                        "sk_id_prev": 2095912,
+                        "sk_id_curr": 118650
+                    },
+                    {
+                        "sk_id_prev": 2332261,
+                        "sk_id_curr": 337802
+                    },
+                    {
+                        "sk_id_prev": 2582071,
+                        "sk_id_curr": 363914
+                    }
+                ],
+                "representative_customer_application_presence": {
+                    "126868": "application_train.csv",
+                    "363914": "application_train.csv",
+                    "118650": "application_test.csv",
+                    "276642": "application_test.csv",
+                    "337802": "application_test.csv"
+                },
+                "representative_ids_present_in_installments": 5,
+                "representative_ids_present_in_pos_cash": 0,
+                "interpretation": [
+                    "10,195 credit-card orphan IDs also occur in installments_payments.csv.",
+                    "1,177 credit-card orphan IDs do not occur in either installments_payments.csv or POS_CASH_balance.csv.",
+                    "All 10,195 shared IDs have matching customer mappings.",
+                    "No credit-card orphan IDs overlap the POS-CASH orphan population.",
+                    "The cross-table evidence does not establish why the previous-application parent records are absent."
+                ]
+            }
+        },
+        "installments_to_previous_application": {
+            "coverage": {
+                "child_table": "installments_payments.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 13605401,
+                "orphan_rows": 1250826,
+                "distinct_orphan_ids": 38847,
+                "orphan_rows_percentage": 9.1936,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 35227,
+                    "customers_found_in_applications": 35227,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "2592574",
+                        "rows": 279
+                    },
+                    {
+                        "id": "1017477",
+                        "rows": 248
+                    },
+                    {
+                        "id": "1690678",
+                        "rows": 223
+                    },
+                    {
+                        "id": "2709164",
+                        "rows": 222
+                    },
+                    {
+                        "id": "1383111",
+                        "rows": 220
+                    },
+                    {
+                        "id": "2543266",
+                        "rows": 216
+                    },
+                    {
+                        "id": "2363104",
+                        "rows": 215
+                    },
+                    {
+                        "id": "1596156",
+                        "rows": 214
+                    },
+                    {
+                        "id": "2425232",
+                        "rows": 213
+                    },
+                    {
+                        "id": "2388698",
+                        "rows": 213
+                    },
+                    {
+                        "id": "1689292",
+                        "rows": 211
+                    },
+                    {
+                        "id": "1367696",
+                        "rows": 211
+                    },
+                    {
+                        "id": "2532655",
+                        "rows": 209
+                    },
+                    {
+                        "id": "1242387",
+                        "rows": 209
+                    },
+                    {
+                        "id": "1392344",
+                        "rows": 207
+                    },
+                    {
+                        "id": "2341786",
+                        "rows": 207
+                    },
+                    {
+                        "id": "1921358",
+                        "rows": 206
+                    },
+                    {
+                        "id": "1614157",
+                        "rows": 206
+                    },
+                    {
+                        "id": "2045029",
+                        "rows": 205
+                    },
+                    {
+                        "id": "2080847",
+                        "rows": 204
+                    }
+                ]
+            },
+            "additional_findings": {
+                "distinct_orphan_ids": 38847,
+                "orphan_rows": 1250826,
+                "orphan_row_percentage": 9.1936,
+                "overlap_with_credit_card_orphans": 10195,
+                "overlap_with_pos_cash_orphans": 28647,
+                "installments_only_orphan_ids": 5,
+                "customer_mapping_validation": {
+                    "shared_ids_with_credit_card": 10195,
+                    "matching_credit_card_customer_mappings": 10195,
+                    "shared_ids_with_pos_cash": 28647,
+                    "matching_pos_cash_customer_mappings": 28647,
+                    "mismatched_customer_mappings": 0
+                },
+                "interpretation": [
+                    "All 38,847 installment orphan IDs are accounted for in comparisons with the other two SK_ID_PREV orphan populations.",
+                    "10,195 IDs are shared with credit-card orphan records.",
+                    "28,647 IDs are shared with POS-CASH orphan records.",
+                    "Five IDs occur only in the installment orphan population.",
+                    "All shared customer mappings checked matched exactly.",
+                    "Matching customer mappings do not establish the missing previous-application relationship."
+                ]
+            }
+        }
+    },
+    "cross_table_orphan_overlap": {
+        "identifier": "SK_ID_PREV",
+        "orphan_id_counts": {
+            "POS_CASH_balance.csv": 37422,
+            "credit_card_balance.csv": 11372,
+            "installments_payments.csv": 38847
+        },
+        "pairwise_intersections": {
+            "POS_CASH_and_installments": 28647,
+            "credit_card_and_installments": 10195,
+            "POS_CASH_and_credit_card": 0
+        },
+        "three_way_intersection": 0,
+        "mutually_exclusive_groups": {
+            "POS_CASH_and_installments_only": 28647,
+            "credit_card_and_installments_only": 10195,
+            "POS_CASH_only": 8775,
+            "credit_card_only": 1177,
+            "installments_only": 5
+        },
+        "deduplicated_union_distinct_ids": 48799,
+        "total_id_appearances_before_deduplication": 87641,
+        "reconciliation": {
+            "sum_of_mutually_exclusive_groups": 48799,
+            "union_matches_group_sum": true
+        },
+        "interpretation": [
+            "The three SK_ID_PREV orphan populations overlap.",
+            "POS-CASH and credit-card orphan populations have no IDs in common.",
+            "There are no IDs shared by all three populations.",
+            "The deduplicated union contains 48,799 distinct SK_ID_PREV values.",
+            "These SK_ID_PREV counts must not be combined with bureau_balance SK_ID_BUREAU orphan counts."
+        ]
+    },
+    "investigation_summary": {
+        "overall_assessment": "REVIEW_REQUIRED",
+        "orphan_coverage_totals": {
+            "total_child_rows_across_four_tables": 54746996,
+            "total_orphan_rows_across_four_tables": 5794387,
+            "weighted_orphan_row_percentage": 10.58,
+            "note": "The row totals combine four separate child tables. Distinct orphan IDs belong to different identifier domains and must not be summed as a unique global ID count."
+        },
+        "unresolved_findings": [
+            "43,041 SK_ID_BUREAU values in bureau_balance.csv have no matching bureau.csv parent record.",
+            "37,422 POS-CASH SK_ID_PREV values have no matching previous_application.csv parent record.",
+            "11,372 credit-card SK_ID_PREV values have no matching previous_application.csv parent record.",
+            "38,847 installment SK_ID_PREV values have no matching previous_application.csv parent record.",
+            "The investigations have not established the root cause of these missing parent records."
+        ],
+        "limitations": [
+            "Customer membership in application_train.csv or application_test.csv does not prove the existence of a matching previous-application record.",
+            "bureau_balance.csv does not contain SK_ID_CURR; customer-level analysis requires a valid bureau relationship.",
+            "Cross-table ID overlap and matching customer mappings provide supporting evidence, not a root-cause explanation.",
+            "The original REVIEW statuses are retained."
+        ],
+        "data_preservation": {
+            "raw_data_modified": false,
+            "bronze_data_modified": false,
+            "original_integrity_report_modified": false,
+            "source_coverage_report_modified": false
+        }
+    },
+    "orphan_coverage_source": {
+        "source_file": "home_credit_orphan_coverage_report.json",
+        "relationship_count": 4,
+        "relationships": [
+            {
+                "child_table": "bureau_balance.csv",
+                "parent_table": "bureau.csv",
+                "child_key": "SK_ID_BUREAU",
+                "parent_key": "SK_ID_BUREAU",
+                "total_child_rows": 27299925,
+                "orphan_rows": 3120184,
+                "distinct_orphan_ids": 43041,
+                "orphan_rows_percentage": 11.4293,
+                "orphan_customer_analysis": {
+                    "status": "not_available",
+                    "reason": "bureau_balance.csv does not contain SK_ID_CURR. Its customer relationship requires bureau.csv."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "5718895",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719020",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719021",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719278",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719280",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719281",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5719553",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720038",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720362",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720363",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720370",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5720374",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212208",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212211",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212217",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212234",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212236",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212244",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212245",
+                        "rows": 97
+                    },
+                    {
+                        "id": "5212246",
+                        "rows": 97
+                    }
+                ]
+            },
+            {
+                "child_table": "POS_CASH_balance.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 10001358,
+                "orphan_rows": 340561,
+                "distinct_orphan_ids": 37422,
+                "orphan_rows_percentage": 3.4051,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 33530,
+                    "customers_found_in_applications": 33530,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "1271619",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1012861",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2611445",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1136347",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1323129",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1797672",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1103213",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2463401",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1752258",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1912962",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1466912",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2433053",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1252382",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2247294",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1978246",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1985467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2619136",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2459775",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1621683",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1779500",
+                        "rows": 96
+                    }
+                ]
+            },
+            {
+                "child_table": "credit_card_balance.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 3840312,
+                "orphan_rows": 1082816,
+                "distinct_orphan_ids": 11372,
+                "orphan_rows_percentage": 28.196,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 11368,
+                    "customers_found_in_applications": 11368,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "2582071",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1891521",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2095912",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1039039",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2332261",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1009803",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2293769",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2726169",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1444467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1681467",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2137059",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2701290",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1125977",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1081753",
+                        "rows": 96
+                    },
+                    {
+                        "id": "2638478",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1445955",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1900349",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1985672",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1496965",
+                        "rows": 96
+                    },
+                    {
+                        "id": "1660593",
+                        "rows": 96
+                    }
+                ]
+            },
+            {
+                "child_table": "installments_payments.csv",
+                "parent_table": "previous_application.csv",
+                "child_key": "SK_ID_PREV",
+                "parent_key": "SK_ID_PREV",
+                "total_child_rows": 13605401,
+                "orphan_rows": 1250826,
+                "distinct_orphan_ids": 38847,
+                "orphan_rows_percentage": 9.1936,
+                "orphan_customer_analysis": {
+                    "customer_id_source": "SK_ID_CURR in child table",
+                    "distinct_customer_ids": 35227,
+                    "customers_found_in_applications": 35227,
+                    "customers_missing_from_applications": 0,
+                    "customer_match_percentage": 100.0,
+                    "customer_analysis_limitation": "Customer membership only; does not establish the missing previous application relationship."
+                },
+                "top_20_orphan_ids_by_row_count": [
+                    {
+                        "id": "2592574",
+                        "rows": 279
+                    },
+                    {
+                        "id": "1017477",
+                        "rows": 248
+                    },
+                    {
+                        "id": "1690678",
+                        "rows": 223
+                    },
+                    {
+                        "id": "2709164",
+                        "rows": 222
+                    },
+                    {
+                        "id": "1383111",
+                        "rows": 220
+                    },
+                    {
+                        "id": "2543266",
+                        "rows": 216
+                    },
+                    {
+                        "id": "2363104",
+                        "rows": 215
+                    },
+                    {
+                        "id": "1596156",
+                        "rows": 214
+                    },
+                    {
+                        "id": "2425232",
+                        "rows": 213
+                    },
+                    {
+                        "id": "2388698",
+                        "rows": 213
+                    },
+                    {
+                        "id": "1689292",
+                        "rows": 211
+                    },
+                    {
+                        "id": "1367696",
+                        "rows": 211
+                    },
+                    {
+                        "id": "2532655",
+                        "rows": 209
+                    },
+                    {
+                        "id": "1242387",
+                        "rows": 209
+                    },
+                    {
+                        "id": "1392344",
+                        "rows": 207
+                    },
+                    {
+                        "id": "2341786",
+                        "rows": 207
+                    },
+                    {
+                        "id": "1921358",
+                        "rows": 206
+                    },
+                    {
+                        "id": "1614157",
+                        "rows": 206
+                    },
+                    {
+                        "id": "2045029",
+                        "rows": 205
+                    },
+                    {
+                        "id": "2080847",
+                        "rows": 204
+                    }
+                ]
+            }
+        ]
+    }
+}

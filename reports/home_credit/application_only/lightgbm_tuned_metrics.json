@@ -1,0 +1,33 @@
+{
+    "model": "lightgbm",
+    "selection_metric": "Cross-validation Average Precision",
+    "best_cv_average_precision": 0.23954948791808062,
+    "validation_threshold": 0.581084105862347,
+    "validation_roc_auc": 0.7595155068396073,
+    "validation_average_precision": 0.24929640803008862,
+    "validation_precision": 0.22860253095659272,
+    "validation_recall": 0.45112781954887216,
+    "validation_f1": 0.3034408019506909,
+    "validation_confusion_matrix": [
+        [
+            36734,
+            5669
+        ],
+        [
+            2044,
+            1680
+        ]
+    ],
+    "best_parameters": {
+        "model__subsample_freq": 1,
+        "model__subsample": 0.85,
+        "model__scale_pos_weight": 9.0,
+        "model__reg_lambda": 5.0,
+        "model__num_leaves": 31,
+        "model__n_estimators": 300,
+        "model__min_child_samples": 100,
+        "model__max_depth": 6,
+        "model__learning_rate": 0.07,
+        "model__colsample_bytree": 0.85
+    }
+}

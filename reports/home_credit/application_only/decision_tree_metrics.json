@@ -1,0 +1,25 @@
+{
+    "model": "decision_tree",
+    "training_rows": 215257,
+    "validation_rows": 46127,
+    "numeric_features": 104,
+    "categorical_features": 16,
+    "threshold_selection": "Maximum validation F1",
+    "threshold": 0.7132137814546434,
+    "roc_auc": 0.706804115986666,
+    "average_precision": 0.19247605550475422,
+    "precision": 0.2328131590046394,
+    "recall": 0.2964554242749731,
+    "f1": 0.26080793763288446,
+    "confusion_matrix": [
+        [
+            38765,
+            3638
+        ],
+        [
+            2620,
+            1104
+        ]
+    ],
+    "random_state": 42
+}

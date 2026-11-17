@@ -1,0 +1,26 @@
+{
+    "model": "lightgbm",
+    "selection_method": "Maximum validation F1",
+    "threshold": 0.6756034138505798,
+    "roc_auc": 0.7592243133902656,
+    "average_precision": 0.24881053416489424,
+    "precision": 0.2585356947233887,
+    "recall": 0.3802363050483351,
+    "f1": 0.30779263123573525,
+    "confusion_matrix": [
+        [
+            38342,
+            4061
+        ],
+        [
+            2308,
+            1416
+        ]
+    ],
+    "training_rows": 215257,
+    "validation_rows": 46127,
+    "num_numeric_features": 104,
+    "num_categorical_features": 16,
+    "processed_feature_count": 244,
+    "scale_pos_weight": 11.38746619094205
+}

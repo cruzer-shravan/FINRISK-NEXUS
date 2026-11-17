@@ -1,0 +1,26 @@
+{
+    "model": "xgboost",
+    "selection_method": "Maximum validation F1",
+    "threshold": 0.6603553295135498,
+    "roc_auc": 0.7584752511405763,
+    "average_precision": 0.2486628125103414,
+    "precision": 0.24632170606711853,
+    "recall": 0.40010741138560685,
+    "f1": 0.3049217231147038,
+    "confusion_matrix": [
+        [
+            37844,
+            4559
+        ],
+        [
+            2234,
+            1490
+        ]
+    ],
+    "training_rows": 215257,
+    "validation_rows": 46127,
+    "num_numeric_features": 104,
+    "num_categorical_features": 16,
+    "processed_feature_count": 244,
+    "scale_pos_weight": 11.38746619094205
+}

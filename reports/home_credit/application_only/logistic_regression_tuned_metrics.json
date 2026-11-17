@@ -1,0 +1,28 @@
+{
+    "model": "LogisticRegression_Tuned",
+    "selection_strategy": "RandomizedSearchCV",
+    "primary_cv_metric": "average_precision",
+    "best_cv_average_precision": 0.21651837594865936,
+    "best_parameters": {
+        "model__l1_ratio": 1.0,
+        "model__class_weight": null,
+        "model__C": 10.0
+    },
+    "cv_folds": 2,
+    "random_search_iterations": 6,
+    "validation_roc_auc": 0.7458109610275483,
+    "validation_average_precision": 0.22675001343696904,
+    "validation_brier_score": 0.06861553712245695,
+    "threshold": 0.1465804451838669,
+    "precision": 0.2361483820047356,
+    "recall": 0.40171858216971,
+    "f1": 0.2974450740630281,
+    "confusion_matrix": {
+        "tn": 37564,
+        "fp": 4839,
+        "fn": 2228,
+        "tp": 1496
+    },
+    "validation_rows": 46127,
+    "test_data_used": false
+}

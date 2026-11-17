@@ -6,7 +6,7 @@
 
 **Tech Stack:** Python, Scikit-learn, XGBoost, LightGBM, PyTorch, PyTorch Geometric, PostgreSQL, DuckDB, Polars, Parquet, FastAPI, Streamlit, Docker, MLflow, and Git.
 
-**Project Status:** Modular implementation in progress.
+**Project Status:** Modular implementation in progress. Home Credit and PaySim modelling evaluations are frozen, and the initial inference API is implemented and tested. Temporal, graph, AML, monitoring, and advanced investigation capabilities remain under development.
 
 ---
 
@@ -98,9 +98,27 @@ Human approval remains essential for consequential decisions.
 
 ## 16. Real-Time Inference
 
-FastAPI provides a potential REST serving layer. Kafka or Redpanda, Flink, Feast, and Redis may support event streaming and low-latency feature retrieval.
+The initial REST inference layer is implemented using FastAPI.
 
-Performance will be evaluated through throughput, p50/p95/p99 latency, error rates, and resource utilization.
+It supports:
+- Home Credit application default-risk prediction.
+- PaySim transaction fraud prediction.
+- Model metadata retrieval.
+- API health checks.
+- Input schema validation and prediction response validation.
+
+Available endpoints:
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/health` | API health status |
+| GET | `/models` | Loaded model metadata |
+| POST | `/predict/paysim` | PaySim fraud prediction |
+| POST | `/predict/home-credit` | Home Credit default-risk prediction |
+
+Interactive API documentation is available at `/docs`.
+
+The current implementation loads frozen model artifacts during application startup. Event streaming, online feature retrieval, and production-scale serving remain future enhancements.
 
 ## 17. MLOps
 
@@ -165,15 +183,13 @@ Each phase will have measurable acceptance criteria, reproducible experiments, a
 
 ### Prerequisites
 
-- Python
-- Git
-- Docker, if containerized deployment is configured
+- Python environment compatible with the pinned project dependencies.
+- Git.
+- Model artifacts provisioned locally as described below.
 
 ### Clone the Repository
 
-Replace the placeholder with the actual GitHub repository URL.
-
-```bash
+```powershell
 git clone <YOUR_GITHUB_REPOSITORY_URL>
 cd FINRISK-NEXUS
 ```
@@ -191,47 +207,96 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-### Configure Environment Variables
+### Model Artifact Provisioning
 
-Prepare the datasets and configure environment variables according to the repository documentation.
+Serialized model artifacts (`.joblib`) are excluded from Git.
 
-Use `.env.example` as the configuration template. Keep actual credentials and secrets out of version control.
+The inference API requires the following frozen artifacts:
 
-### Run the Available Components
+| Dataset | Required artifact |
+|---|---|
+| PaySim | `models/paysim/tree_fraud_v1/random_forest.joblib` |
+| Home Credit | `reports/home_credit/model_selection_locks/20261107_xgboost_sigmoid/model/calibrated_xgboost_tuned_sigmoid.joblib` |
 
-The following commands apply only when the corresponding scripts, modules, dependencies, and configurations have been implemented.
+Expected SHA256 checksums:
 
-**Train a model:**
-
-```powershell
-python scripts/train.py
+**PaySim**
+```text
+f78ff716a62665aa2c3524b39ee7ac3a909895b18ae13c55abc8f729dee002fb
 ```
 
-**Start the API:**
-
-```powershell
-uvicorn api.main:app --reload
+**Home Credit**
+```text
+21b24d48dd54a03080f30d3421d807d74ae04fd7f734c34da82d3e59e33d644b
 ```
 
-**Start the Streamlit interface:**
+Before starting the API:
+
+1. Obtain the corresponding frozen model artifacts from the project release archive or original development environment.
+2. Place each artifact at the exact path specified above.
+3. Verify its SHA256 checksum.
+4. Do not substitute a newly trained or differently calibrated model without creating a new model release and updating its contract.
+
+The model contracts under `configs/model_contracts/` define the expected artifact paths, feature schemas, model checksums, and decision thresholds.
+
+Example checksum verification:
 
 ```powershell
-streamlit run ui/streamlit_app.py
+Get-FileHash models/paysim/tree_fraud_v1/random_forest.joblib -Algorithm SHA256
+
+Get-FileHash reports/home_credit/model_selection_locks/20261107_xgboost_sigmoid/model/calibrated_xgboost_tuned_sigmoid.joblib -Algorithm SHA256
 ```
 
-**Run tests:**
+### Start the Inference API
 
 ```powershell
-pytest -q
+python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
-**Start Docker services:**
+The API loads and verifies the configured model artifacts during startup.
+
+Available endpoints:
+
+- Health: `http://127.0.0.1:8000/health`
+- Model metadata: `http://127.0.0.1:8000/models`
+- Interactive API documentation: `http://127.0.0.1:8000/docs`
+
+Prediction endpoints:
+
+- `POST /predict/paysim`
+- `POST /predict/home-credit`
+
+Prediction requests contain a `records` array with between 1 and 1,000 records. Each record must satisfy the corresponding model feature contract.
+
+### Run Tests
 
 ```powershell
-docker compose up --build
+python -m pytest -q
 ```
 
-These commands assume the specified scripts, dependencies, and configuration are implemented. Verify the actual repository before execution.
+Run code-quality checks:
+
+```powershell
+python -m ruff check api src/inference tests
+python -m ruff format --check api src/inference tests
+```
+
+### Release Evidence and Reproducibility
+
+The repository contains curated model evaluation reports, model-selection records, release records, feature contracts, checksum manifests, and selected validation-freeze documentation.
+
+Complete validation-freeze bundles and large serialized artifacts may be retained in the original development environment and are not necessarily included in a Git clone.
+
+A checksum manifest documents the integrity of its referenced files; it does not imply that every referenced file is committed to the repository.
+
+For reproducibility:
+
+- Preserve frozen model artifacts and their SHA256 checksums.
+- Preserve the associated feature contracts and decision thresholds.
+- Do not tune thresholds or select replacement models using frozen test results.
+- Treat future model changes as new, independently versioned releases.
+- Do not interpret experimental evaluation results as production approval.
+
 
 ---
 

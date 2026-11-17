@@ -1,0 +1,25 @@
+{
+    "model": "random_forest",
+    "training_rows": 215257,
+    "validation_rows": 46127,
+    "numeric_features": 104,
+    "categorical_features": 16,
+    "threshold_selection": "Maximum validation F1",
+    "threshold": 0.5851598553676872,
+    "roc_auc": 0.7350663584414424,
+    "average_precision": 0.2122554760269798,
+    "precision": 0.21942822930698996,
+    "recall": 0.3936627282491944,
+    "f1": 0.2817876021143681,
+    "confusion_matrix": [
+        [
+            37188,
+            5215
+        ],
+        [
+            2258,
+            1466
+        ]
+    ],
+    "random_state": 42
+}

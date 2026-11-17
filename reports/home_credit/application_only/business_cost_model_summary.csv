@@ -1,0 +1,4 @@
+model,roc_auc,average_precision,brier_score,saved_threshold,best_f1_threshold,best_f1,best_Equal_threshold,best_Equal_cost,best_Moderate_Default_Cost_threshold,best_Moderate_Default_Cost_cost,best_High_Default_Cost_threshold,best_High_Default_Cost_cost,best_Very_High_Default_Cost_threshold,best_Very_High_Default_Cost_cost
+XGBoost Tuned,0.7568630196174282,0.24899738689835613,0.12400952726602554,,0.5,0.3062511948002294,0.75,3785,0.75,7177,0.55,15700,0.4,24834
+LightGBM Baseline,0.7592243133902656,0.24881053416489424,0.18815350979813034,0.6756034138505798,0.6756034138505798,0.30779263123573525,0.75,4755,0.75,7560,0.6756034138505798,15601,0.5,24408
+LightGBM Tuned,0.7595155068396073,0.24929640803008862,0.15807162044743234,,0.6,0.3018904696940168,0.75,4216,0.75,7261,0.65,15711,0.45,24497

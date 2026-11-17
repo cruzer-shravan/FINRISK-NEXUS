@@ -1,0 +1,11 @@
+{
+    "model": "xgboost_tuned",
+    "method": "isotonic",
+    "calibration_cv_folds": 3,
+    "calibration_training_rows": 215257,
+    "validation_rows": 46127,
+    "brier_score": 0.06771078658723016,
+    "roc_auc": 0.7569360459594987,
+    "average_precision": 0.24407686791335956,
+    "log_loss": 0.24601695532268944
+}

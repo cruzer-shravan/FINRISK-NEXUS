@@ -13,3 +13,15 @@ artifacts/
 data/
 *.bak
 *.parquet
+
+# Redundant historical Home Credit validation freeze
+reports/home_credit/validation_freezes/20261107_113925/
+
+# Serialized ML model artifacts
+*.joblib
+
+# Large Home Credit calibrated business-cost threshold exports
+reports/home_credit/**/calibrated_business_cost_threshold_analysis.csv
+
+# Duplicate reports embedded in the Home Credit validation freeze
+reports/home_credit/validation_freezes/20261107_113939/reports/

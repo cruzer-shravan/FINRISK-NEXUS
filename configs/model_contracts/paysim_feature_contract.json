@@ -1,0 +1,55 @@
+{
+  "contract_version": "1.0.0",
+  "model_name": "paysim_random_forest",
+  "dataset": "PaySim",
+  "target": "isFraud",
+  "positive_class": 1,
+  "decision_threshold": 0.9305254794485053,
+  "model_artifact": "models/paysim/tree_fraud_v1/random_forest.joblib",
+  "model_sha256": "f78ff716a62665aa2c3524b39ee7ac3a909895b18ae13c55abc8f729dee002fb",
+  "feature_count": 5,
+  "feature_order": [
+    "amount",
+    "oldbalanceOrg",
+    "oldbalanceDest",
+    "log_amount",
+    "type"
+  ],
+  "numeric_features": [
+    "amount",
+    "oldbalanceOrg",
+    "oldbalanceDest",
+    "log_amount"
+  ],
+  "categorical_features": [
+    "type"
+  ],
+  "derived_features": {
+    "log_amount": {
+      "formula": "ln(1 + amount)",
+      "source": "Gold transaction_features.parquet",
+      "validation": "Must match log1p(amount) within numerical tolerance."
+    }
+  },
+  "excluded_columns": {
+    "step": "Temporal field; not passed to the model.",
+    "isFraud": "Target; not accepted as a prediction input."
+  },
+  "input_policy": {
+    "missing_values": "reject",
+    "unexpected_columns": "reject",
+    "allowed_transaction_types": [
+      "CASH_IN",
+      "CASH_OUT",
+      "DEBIT",
+      "PAYMENT",
+      "TRANSFER"
+    ],
+    "nonnegative_numeric_features": [
+      "amount",
+      "oldbalanceOrg",
+      "oldbalanceDest"
+    ]
+  },
+  "preprocessing": "Inside fitted sklearn Pipeline."
+}

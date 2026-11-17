@@ -1,0 +1,11 @@
+{
+    "model": "xgboost_tuned",
+    "method": "sigmoid",
+    "calibration_cv_folds": 3,
+    "calibration_training_rows": 215257,
+    "validation_rows": 46127,
+    "brier_score": 0.06776287225742202,
+    "roc_auc": 0.7568630196174282,
+    "average_precision": 0.24899738689835613,
+    "log_loss": 0.2466022340828355
+}
