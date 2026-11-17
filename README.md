@@ -190,7 +190,7 @@ Each phase will have measurable acceptance criteria, reproducible experiments, a
 ### Clone the Repository
 
 ```powershell
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/cruzer-shravan/FINRISK-NEXUS.git
 cd FINRISK-NEXUS
 ```
 
