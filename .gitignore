@@ -1,7 +1,12 @@
 .venv/
 __pycache__/
 *.py[cod]
+
+# Environment and secrets
 .env
+.env.*
+!.env.example
+
 .ipynb_checkpoints/
 .pytest_cache/
 .ruff_cache/
@@ -17,8 +22,15 @@ data/
 # Redundant historical Home Credit validation freeze
 reports/home_credit/validation_freezes/20261107_113925/
 
-# Serialized ML model artifacts
+# Serialized and trained model artifacts
 *.joblib
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.ckpt
 
 # Large Home Credit calibrated business-cost threshold exports
 reports/home_credit/**/calibrated_business_cost_threshold_analysis.csv
